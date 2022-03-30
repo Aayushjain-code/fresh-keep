@@ -18,8 +18,7 @@ function App() {
   return (
     <div className="App">
       <Navbar />
-      <Sidebar />
-      <Footer />
+      {/* <Sidebar /> */}
       <Routes>
         <Route path="/" element={<LandingPage />} />
         <Route path="/notes" element={<NotesPage />} />
@@ -29,6 +28,7 @@ function App() {
         <Route path="/signup" element={<Signup />} />
 
       </Routes>
+      <Footer />
     </div>
   );
 }

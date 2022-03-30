@@ -1,0 +1,30 @@
+.sidebar {
+	margin-top: 10rem;
+	/* margin-top: 1rem; */
+	z-index: 10;
+	width: 15rem;
+	background-color: var(--bg-color-1);
+	max-height: 30rem;
+	border-radius: 0.5rem;
+	position: sticky;
+}
+/* .sidebar2 {
+	margin-top: 8rem;
+	width: 15rem;
+	background-color: var(--bg-color-1);
+	min-height: 3rem;
+	border-radius: 0.5rem;
+	position: sticky;
+} */
+
+.sidebar-heading {
+	font-size: 1.8rem;
+	margin-left: 5rem;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	max-width: 0rem;
+	cursor: pointer;
+	padding-top: 2rem;
+}
