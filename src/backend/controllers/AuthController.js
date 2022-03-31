@@ -1,7 +1,8 @@
 import { v4 as uuid } from "uuid";
 import { Response } from "miragejs";
 import { formatDate } from "../utils/authUtils";
-const sign = require("jwt-encode");
+import bcrypt from "bcryptjs";
+const jwt = require("jsonwebtoken");
 
 /**
  * All the routes related to Auth are present here.
@@ -29,18 +30,22 @@ export const signupHandler = function (schema, request) {
       );
     }
     const _id = uuid();
+    const encryptedPassword = bcrypt.hashSync(password, 5);
     const newUser = {
       _id,
       email,
-      password,
+      password: encryptedPassword,
       createdAt: formatDate(),
       updatedAt: formatDate(),
       ...rest,
       notes: [],
-      archives: [],
+      archivedNotes: [],
     };
     const createdUser = schema.users.create(newUser);
-    const encodedToken = sign({ _id, email }, process.env.REACT_APP_JWT_SECRET);
+    const encodedToken = jwt.sign(
+      { _id, email },
+      process.env.REACT_APP_JWT_SECRET
+    );
     return new Response(201, {}, { createdUser, encodedToken });
   } catch (error) {
     return new Response(
@@ -60,6 +65,7 @@ export const signupHandler = function (schema, request) {
  * */
 
 export const loginHandler = function (schema, request) {
+  console.log(JSON.parse(request.requestBody))
   const { email, password } = JSON.parse(request.requestBody);
   try {
     const foundUser = schema.users.findBy({ email });
@@ -70,8 +76,8 @@ export const loginHandler = function (schema, request) {
         { errors: ["The email you entered is not Registered. Not Found error"] }
       );
     }
-    if (password === foundUser.password) {
-      const encodedToken = sign(
+    if (bcrypt.compareSync(password, foundUser.password)) {
+      const encodedToken = jwt.sign(
         { _id: foundUser._id, email },
         process.env.REACT_APP_JWT_SECRET
       );

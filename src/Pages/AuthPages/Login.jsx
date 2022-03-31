@@ -1,9 +1,10 @@
 import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom';
+import { useAuth } from '../../Context/auth-context';
 import './auth.css'
 
 const Login = () => {
-	// const { login, testLogin } = useAuth();
+	const { login, testlogin } = useAuth();
 
 	const [userDetails, setUserDetails] = useState({ email: '', password: '' })
 	const [error, setError] = useState({ isError: false, text: '' });
@@ -28,7 +29,8 @@ const Login = () => {
 		else if (!userDetails.email.includes('@')) {
 			setError({ isError: true, text: 'Invalid Email-Id' })
 		} else {
-			// login(userDetails)
+			login(userDetails);
+			console.log(userDetails, "loginUp");
 			setUserDetails({ email: '', password: '' })
 		}
 	}
@@ -53,7 +55,7 @@ const Login = () => {
 					<div className="button" onClick={(e) => loginHandler(e)}>
 						Login Now
 					</div>
-					<div className="button">
+					<div className="button" onClick={() => testlogin()}>
 						Test Login
 					</div>
 					<div className="text">

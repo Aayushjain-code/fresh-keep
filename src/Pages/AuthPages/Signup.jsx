@@ -1,11 +1,12 @@
 import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom';
+import { useAuth } from '../../Context/auth-context';
 import './auth.css'
 
 
 
 const Signup = () => {
-	// const { signup } = useAuth()
+	const { signUp } = useAuth();
 	const [userDetails, setUserDetails] = useState({
 		firstName: "",
 		lastName: "",
@@ -29,6 +30,7 @@ const Signup = () => {
 
 
 	const submitHandler = (e) => {
+		console.log(userDetails);
 		e.preventDefault()
 		const passwordValidation = /^(?=.*\d)(?=.*[a-z]).{5,}$/;
 
@@ -52,10 +54,7 @@ const Signup = () => {
 			setError({ isError: true, text: 'Please accept terms and conditions!!' })
 		}
 		else {
-
-
-
-
+			signUp(userDetails);
 			setUserDetails({ firstName: '', lastName: '', email: '', password: '', confirmPassword: '', terms: true })
 		}
 
