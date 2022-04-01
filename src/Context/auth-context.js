@@ -30,6 +30,22 @@ const authReducer = (state, { type, payload }) => {
 
 		case "LOGOUT":
 			return { ...state, toastData: { display: true, data: payload.toastMessage, status: "alert" }, signedIn: false, userName: payload.name, userEmail: payload.email, userID: payload.id }
+
+		//Notes context
+		case "GET_ALL_NOTES":
+			return { ...state, toastData: { ...state.toastData, display: false }, notes: payload.data }
+
+		case "ADD_NOTE":
+			return { ...state, toastData: { display: true, data: payload.toastMessage, status: "success" }, notes: payload.data }
+
+		case "DELETE_NOTE":
+			return { ...state, toastData: { display: true, data: payload.toastMessage, status: "alert" }, notes: payload.data }
+
+		case "UPDATE_NOTE":
+			return { ...state, toastData: { display: true, data: payload.toastMessage, status: "success" }, notes: payload.data }
+
+		case "ARCHIVE_NOTE":
+			return { ...state, toastData: { display: true, data: payload.toastMessage, status: "success" }, notes: payload.notesData, archivedNotes: payload.archivedData }
 		default:
 			return { ...state }
 	}

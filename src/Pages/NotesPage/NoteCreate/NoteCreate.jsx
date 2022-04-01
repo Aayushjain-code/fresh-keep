@@ -1,4 +1,5 @@
 import React from 'react'
+import { ColorPalette } from '../../../Components/ColorPalette/ColorPalette'
 import "./NoteCreate.css"
 const NoteCreate = () => {
 	return (
@@ -58,6 +59,7 @@ const NoteCreate = () => {
 							<option value="Medium">Medium</option>
 							<option value="Low">Low</option>
 						</select>
+						<ColorPalette />
 					</div>
 					<button
 						className='add-btn'
