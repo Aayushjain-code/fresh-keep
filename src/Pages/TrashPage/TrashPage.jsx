@@ -1,60 +1,23 @@
 import React from 'react'
-import "./LabelPage.css"
+import "./TrashPage.css"
 
-const LabelPage = () => {
+const TrashPage = () => {
 	return (
 		<>
 			<div className="main-container">
 
-				<div className="filter-container-landing">
-					{/* <h1 className="filter-heading">Notes</h1> */}
-					{/* <span className="filter-sub-heading">
-						<label style={{ fontSize: '1.8rem' }}>Priority Sorting: </label>
-						<br />
-						<label>
-							<input type="radio" name="group1"
+				<div className="filter-container-landing3">
 
-							/> <span>high</span>
-						</label>
-						<br />
-						<label>
-							<input type="radio" name="group1"
-
-							/> <span>Medium</span>
-						</label>
-						<br />
-						<label>
-							<input type="radio" name="group1"
-							/> <span>low</span>
-						</label>
-					</span> */}
-
-					<h1 className="filter-heading">Labels</h1>
 					<span className="filter-sub-heading">
 						<label>
 							<input type="checkbox" name="group1"
 
 							/>
-							<span> Home</span>
+							<span> Clear Archive</span>
 						</label>
 						<br />
-						<label>
-							<input type="checkbox" name="group1"
-							/> <span>Work</span>
-						</label>
-						<br />
-						<label>
-							<input type="checkbox" name="group1"
-							/> <span>Personal</span>
-						</label>
-						<br />
-						<label>
-							<input type="checkbox" name="group1"
-							/> <span>Health</span>
-						</label>
 					</span>
 
-					{/* <h1 className="filter-heading">Archived</h1> */}
 				</div>
 				<div className='product-container'>
 					<section className="cards" id="cards">
@@ -140,9 +103,8 @@ const LabelPage = () => {
 					</section>
 				</div>
 			</div>
-
 		</>
 	)
 }
 
-export default LabelPage
+export default TrashPage
