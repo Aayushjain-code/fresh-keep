@@ -28,6 +28,11 @@ const NavBar = () => {
 					<i class="fa-solid fa-inbox"></i>
 					Archives</p>
 			</Link>
+			<Link to="/trashed">
+				<p class="sidebar-heading link text-decor-none">
+					<i class="fa-solid fa-trash-can"></i>
+					Trashed</p>
+			</Link>
 
 			<div class="icons">
 				<div class="fas fa-search" id="search-btn"></div>

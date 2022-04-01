@@ -1,0 +1,79 @@
+.main-container {
+	margin-top: 5rem;
+	display: grid;
+	grid-template-columns: 1fr 4fr;
+	/* position: absolute; */
+	top: 0;
+
+}
+
+.product-container2 {
+	margin-top: 6rem;
+	display: flex;
+}
+
+
+ .filter-container-landing3 {
+	margin-top: 12rem;
+	margin-bottom: 10rem;
+	margin-left: 2rem;
+	background-color: var(--bg-color-1);
+	padding: 1rem;
+	border-radius: .5rem;
+	max-height: 8rem;
+	max-width: 25rem;
+}
+/*
+.filter-heading,
+.filter-sub-heading {
+	display: inline-block;
+	font-size: 3rem;
+	font-weight: bold;
+	color: var(--text-color-1);
+	margin-bottom: 1rem;
+	background-color: var(--bg-color-2);
+	padding: 1rem;
+	border-radius: .5rem;
+}
+
+.filter-sub-heading {
+	display: block;
+	font-size: 2rem;
+}
+
+.filter-items {
+	background-color: var(--bg-color-2);
+	padding: 0.5rem;
+	border-radius: .5rem;
+	margin-bottom: 1rem;
+	margin-left: 0.5rem;
+}
+
+.radio-filter {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+
+}
+
+.fa-star {
+	font-size: 1.5rem;
+}
+
+.checked {
+	color: orange;
+}
+
+
+
+.note-cards {
+	min-height: 20rem;
+	max-width: 35rem;
+}
+
+.noting-card {
+	margin-left: 15rem;
+	margin-top: 5rem;
+	min-height: 25rem;
+	max-width: 55rem;
+} */

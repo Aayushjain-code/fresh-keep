@@ -8,6 +8,7 @@ import LabelPage from "./Pages/LabelPage/LabelPage";
 import ArchivePage from "./Pages/ArchivePage/ArchivePage";
 import Login from "./Pages/AuthPages/Login";
 import Signup from "./Pages/AuthPages/Signup";
+import TrashPage from "./Pages/TrashPage/TrashPage"
 
 import Navbar from "./Components/Header/Navbar";
 import Sidebar from "./Components/Sidebar/Sidebar";
@@ -36,6 +37,7 @@ function App() {
           <Route path="/notes" element={<NotesPage />} />
           <Route path="/labels" element={<LabelPage />} />
           <Route path="/archives" element={<ArchivePage />} />
+          <Route path="/trashed" element={<TrashPage />} />
         </Route>
 
         <Route element={<RestrictAuth />}>
