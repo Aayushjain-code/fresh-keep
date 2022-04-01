@@ -1,5 +1,5 @@
 import "./App.css";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Location, useLocation } from "react-router-dom";
 
 
 import LandingPage from "./Pages/LandingPage/LandingPage";
@@ -14,20 +14,35 @@ import Sidebar from "./Components/Sidebar/Sidebar";
 import Footer from "./Components/Footer/Footer";
 
 import Mockman from "mockman-js";
+import { RequireAuth } from "./Components/ReqResAuth/RequireAuth";
+import { RestrictAuth } from "./Components/ReqResAuth/RestrictAuth";
 
 function App() {
+
+  const location = useLocation();
+
+
   return (
     <div className="App">
+      {(location.pathname === '/login' || location.pathname === '/signup' || location.pathname === '/') ? null : <Navbar />}
+
       {/* <Navbar /> */}
       {/* <Sidebar /> */}
       <Routes>
         <Route path="/mockman" element={<Mockman />} />
         <Route path="/" element={<LandingPage />} />
-        <Route path="/notes" element={<NotesPage />} />
-        <Route path="/labels" element={<LabelPage />} />
-        <Route path="/archives" element={<ArchivePage />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/signup" element={<Signup />} />
+
+        <Route element={<RequireAuth />}>
+          <Route path="/notes" element={<NotesPage />} />
+          <Route path="/labels" element={<LabelPage />} />
+          <Route path="/archives" element={<ArchivePage />} />
+        </Route>
+
+        <Route element={<RestrictAuth />}>
+          <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<Signup />} />
+        </Route>
+
       </Routes>
       {/* <Footer /> */}
     </div>

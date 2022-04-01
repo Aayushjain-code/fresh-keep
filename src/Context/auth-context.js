@@ -17,8 +17,8 @@ const initialAuthData = {
 
 const authReducer = (state, { type, payload }) => {
 	switch (type) {
-		case "LOGIN SUCCESS":
-			return { ...state, toastData: { display: true, data: payload.toastMessage, status: "success" }, signedIn: true, userName: payload.name, userEmail: payload.email, userID: payload.id }
+		case "LOGIN_SUCCESS":
+			return { ...state, toastData: { display: true, data: payload.toastMessage, status: "success" }, signedIn: true, userName: payload.name, userEmail: payload.email, userID: payload.userID }
 		case "LOGIN_ERROR":
 			return { ...state, toastData: { display: true, data: payload.toastMessage, status: "alert" } }
 
@@ -56,7 +56,7 @@ const AuthProvider = ({ children }) => {
 			console.log(response);
 			if (response.status === 201) {
 				localStorage.setItem("tokenNotesApp", response.data.encodedToken);
-				authDispatch({ type: "LOGIN_SUCCESS", payload: { toastMessage: "Signed up", name: response.data.createdUser.firstName, email: response.data.createdUser.email, id: response.data.createdUser._id } })
+				authDispatch({ type: "LOGIN_SUCCESS", payload: { toastMessage: "Signed up", name: response.data.createdUser.firstName, email: response.data.createdUser.email, userID: response.data.createdUser._id } })
 			}
 			else if (response.status === 422) {
 				authDispatch({ type: "LOGIN_ERROR", payload: { toastMessage: "Account already exists" } })
@@ -75,7 +75,7 @@ const AuthProvider = ({ children }) => {
 			if (response.status === 200) {
 				console.log(response, "created");
 				localStorage.setItem("tokenNotesApp", response.data.encodedToken)
-				authDispatch({ type: "LOGIN_SUCCESS", payload: { toastMessage: "Logged In", name: response.data.foundUser.firstName, email: response.data.foundUser.email, id: response.data.foundUser._id } })
+				authDispatch({ type: "LOGIN_SUCCESS", payload: { toastMessage: "Logged In", name: response.data.foundUser.firstName, email: response.data.foundUser.email, userID: response.data.foundUser._id } })
 			}
 			else if (response.status === 404 || response.status === 401) {
 				authDispatch({ type: "LOGIN_ERROR", payload: { toastMessage: "Invalid credentials" } })
@@ -91,10 +91,11 @@ const AuthProvider = ({ children }) => {
 		console.log("Sent Test");
 		try {
 			const response = await axios.post("/api/auth/login", { email: userEmail, password: userPassword })
-			console.log(response);
+			console.log(response, "test login");
 			if (response.status === 200) {
 				localStorage.setItem("tokenNotesApp", response.data.encodedToken)
-				authDispatch({ type: "LOGIN_SUCCESS", payload: { toastMessage: "Logged In", name: response.data.foundUser.firstName, email: response.data.foundUser.email, id: response.data.foundUser._id } })
+				authDispatch({ type: "LOGIN_SUCCESS", payload: { toastMessage: "Logged In", name: response.data.foundUser.firstName, email: response.data.foundUser.email, userID: response.data.foundUser._id } })
+				console.log("finalState:", response.data.foundUser._id);
 			}
 			else if (response.status === 404 || response.status === 401) {
 				authDispatch({ type: "LOGIN_ERROR", payload: { toastMessage: "Invalid credentials" } })
@@ -106,7 +107,7 @@ const AuthProvider = ({ children }) => {
 
 
 	const logout = () => {
-		authDispatch({ type: "LOGOUT", payload: { toastMessage: "Logged out", name: "", email: "", id: "" } })
+		authDispatch({ type: "LOGOUT", payload: { toastMessage: "Logged out", name: "", email: "", userID: "" } })
 	}
 
 	return (
