@@ -2,7 +2,7 @@ import React from 'react'
 import { useNotes } from '../../../Context/noteContext';
 import "./NewNote.css"
 
-const NewNote = ({ note }) => {
+const NewNote = ({ note, edit, setEdit }) => {
 	const { archiveNote, deleteNote } = useNotes();
 	return (
 		<div class="m1 card flex-r horizontal-card-container note-cards" style={{ backgroundColor: note.selectedBackgroundColor, marginBottom: '-8rem' }} key={note._id}>
@@ -17,7 +17,22 @@ const NewNote = ({ note }) => {
 					<button className='btn card_tags'>{note.priority}</button>
 				</span>
 				<span className='card_icons_container'>
-					<i class="card_icons fa-solid fa-pen"></i>
+					<i class="card_icons fa-solid fa-pen" onClick={() => {
+						setEdit({
+							...edit,
+							isEdit: true,
+							editItem: {
+								...edit.editItem,
+								_id: note._id,
+								pinned: note.pinned,
+								title: note.title,
+								description: note.description,
+								tag: note.tag,
+								priority: note.priority,
+								selectedBackgroundColor: note.selectedBackgroundColor,
+							},
+						});
+					}}></i>
 					<i class="card_icons fa-solid fa-box-archive" onClick={() => { archiveNote(note._id, note) }}></i>
 					<i class="card_icons fa-solid fa-trash " onClick={() => { deleteNote(note._id) }}></i>
 				</span>

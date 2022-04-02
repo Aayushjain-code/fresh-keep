@@ -6,13 +6,25 @@ import "./NotesPage.css"
 
 import { useAuth } from "../../Context/authContext";
 import { useNotes } from "../../Context/noteContext";
+import { EditCard } from '../../Components/EditCard/EditCard';
 
 const NotesPage = () => {
 
 	const { authState } = useAuth();
 	const { notes } = authState;
 	const { getNotes, addNote } = useNotes();
-
+	const [edit, setEdit] = useState({
+		isEdit: false,
+		editItem: {
+			_id: null,
+			pinned: false,
+			title: "",
+			description: "",
+			tag: "Tag",
+			priority: "Priority",
+			selectedBackgroundColor: "#faf8f8",
+		}
+	});
 
 	return (
 		<>
@@ -46,12 +58,12 @@ const NotesPage = () => {
 					<NoteCreate />
 					<section className="cards" id="cards">
 						<div className="box-container flex-row-container2">
-							{notes.map((note) => <NewNote note={note} />)}
+							{notes.map((note) => <NewNote note={note} edit={edit} setEdit={setEdit} />)}
 
 
 						</div>
 
-
+						{edit.isEdit && <EditCard edit={edit} setEdit={setEdit} />}
 					</section>
 				</div>
 			</div>

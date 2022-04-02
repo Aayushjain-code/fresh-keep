@@ -16,7 +16,7 @@ const NoteCreate = () => {
 	return (
 		<>
 			<div
-				style={{ backgroundColor: 'white' }}
+				style={{ backgroundColor: inputCardDetails.selectedBackgroundColor }}
 				className="input-container cont-shadow"
 			>
 				<div className="input-text-section-container">
