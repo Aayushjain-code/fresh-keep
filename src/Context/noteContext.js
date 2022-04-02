@@ -8,7 +8,6 @@ const NoteContext = createContext();
 const NoteProvider = ({ children }) => {
 
 	const { authDispatch } = useAuth();
-
 	const config = {
 		headers: {
 			authorization: localStorage.getItem("tokenNotesApp")
@@ -43,11 +42,40 @@ const NoteProvider = ({ children }) => {
 			console.log(error)
 		}
 	}
+
+	const archiveNote = async (_id, note) => {
+		console.log(_id, note)
+		try {
+			const response = await axios.post(
+				`/api/notes/archives/${_id}`,
+				{ note: note },
+				config
+			)
+			if (response.status === 201) {
+				authDispatch({ type: "ARCHIVE_NOTE", payload: { toastMessage: "Note Archived", notesData: response.data.notes, archivedData: response.data.archives } })
+			}
+		} catch (error) {
+			console.log(error)
+		}
+	}
+
+	const deleteNote = async (_id) => {
+		try {
+			const response = await axios.delete(
+				`/api/notes/${_id}`,
+				config
+			)
+			if (response.status === 200) {
+				authDispatch({ type: "DELETE_NOTE", payload: { toastMessage: "Note Deleted", data: response.data.notes } })
+			}
+		} catch (error) {
+			console.log(error)
+		}
+	}
 	return (
-		<NoteContext.Provider value={{ getNotes, addNote }}>{children}</NoteContext.Provider>
+		<NoteContext.Provider value={{ getNotes, addNote, archiveNote, deleteNote }}>{children}</NoteContext.Provider>
 	)
 }
-
 
 
 const useNotes = () => useContext(NoteContext);

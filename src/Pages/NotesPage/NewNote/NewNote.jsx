@@ -1,7 +1,9 @@
 import React from 'react'
+import { useNotes } from '../../../Context/noteContext';
 import "./NewNote.css"
 
 const NewNote = ({ note }) => {
+	const { archiveNote, deleteNote } = useNotes();
 	return (
 		<div class="m1 card flex-r horizontal-card-container note-cards" style={{ backgroundColor: note.selectedBackgroundColor, marginBottom: '-8rem' }} key={note._id}>
 			<i class=" card-close-btn fa-solid fa-thumbtack"></i>
@@ -16,8 +18,8 @@ const NewNote = ({ note }) => {
 				</span>
 				<span className='card_icons_container'>
 					<i class="card_icons fa-solid fa-pen"></i>
-					<i class="card_icons fa-solid fa-box-archive"></i>
-					<i class="card_icons fa-solid fa-trash "></i>
+					<i class="card_icons fa-solid fa-box-archive" onClick={() => { archiveNote(note._id, note) }}></i>
+					<i class="card_icons fa-solid fa-trash " onClick={() => { deleteNote(note._id) }}></i>
 				</span>
 
 			</div>
