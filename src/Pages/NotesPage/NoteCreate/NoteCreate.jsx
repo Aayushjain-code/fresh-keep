@@ -22,7 +22,7 @@ const NoteCreate = () => {
 				<div className="input-text-section-container">
 					<div className="input-text-section">
 						<textarea
-							role="textbox"
+							role="textBox"
 							type="text"
 							placeholder="Title"
 							autoFocus

@@ -29,7 +29,7 @@ export const EditCard = ({ edit, setEdit }) => {
 				<div className="input-text-section-container">
 					<div className="input-text-section">
 						<textarea
-							role="textbox"
+							role="textBox"
 							type="text"
 							placeholder={edit.editItem.title}
 							autoFocus
@@ -39,7 +39,6 @@ export const EditCard = ({ edit, setEdit }) => {
 							onChange={(e) => {
 								setEditCardDetails({ ...editCardDetails, title: e.target.value });
 							}}
-							autoFocus
 						/>
 						<textarea
 							rows="5"
