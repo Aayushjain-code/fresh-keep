@@ -1,7 +1,18 @@
-import React from 'react'
+import { useState } from 'react'
 import { ColorPalette } from '../../../Components/ColorPalette/ColorPalette'
+import { useNotes } from '../../../Context/noteContext';
 import "./NoteCreate.css"
 const NoteCreate = () => {
+	const { addNote } = useNotes();
+	const [inputCardDetails, setInputCardDetails] = useState({
+		pinned: false,
+		title: "",
+		description: "",
+		tag: "Tag",
+		priority: "Priority",
+		selectedBackgroundColor: "#faf8f8",
+	})
+
 	return (
 		<>
 			<div
@@ -18,19 +29,31 @@ const NoteCreate = () => {
 							rows="1"
 							className="text title-text-style"
 							maxLength="15"
+							onChange={(e) => setInputCardDetails({ ...inputCardDetails, title: e.target.value })}
 						/>
 						<textarea
 							rows="5"
 							className="text"
 							type="text"
 							placeholder="Take a note..."
+							onChange={(e) => setInputCardDetails({ ...inputCardDetails, description: e.target.value })}
 						/>
 					</div>
 					<div>
+						{inputCardDetails.pinned ? (
+							<span className="pin-icon" onClick={() =>
+								setInputCardDetails({ ...inputCardDetails, pinned: !inputCardDetails.pinned })
+							}>
+								<i class="fa-solid fa-thumbtack"></i>
+							</span>
+						) : (
+							<span className="pin-icon" onClick={() =>
+								setInputCardDetails({ ...inputCardDetails, pinned: !inputCardDetails.pinned })
+							}>
+								<i class="fa-solid fa-thumbtack"></i>
+							</span>
+						)}
 
-						<span className="pin-icon">
-							<i class="fa-solid fa-thumbtack"></i>
-						</span>
 
 					</div>
 				</div>
@@ -38,6 +61,7 @@ const NoteCreate = () => {
 					<div className="edit-section">
 						<select
 							className="tag"
+							onChange={(e) => setInputCardDetails({ ...inputCardDetails, tag: e.target.value })}
 						>
 							<option value="Label" hidden>
 								Label
@@ -51,6 +75,7 @@ const NoteCreate = () => {
 						</select>
 						<select
 							className="tag"
+							onChange={(e) => setInputCardDetails({ ...inputCardDetails, priority: e.target.value })}
 						>
 							<option value="Priority" hidden>
 								Priority
@@ -59,10 +84,27 @@ const NoteCreate = () => {
 							<option value="Medium">Medium</option>
 							<option value="Low">Low</option>
 						</select>
-						<ColorPalette />
+						<ColorPalette
+							setInputCardDetails={setInputCardDetails}
+							inputCardDetails={inputCardDetails} />
 					</div>
 					<button
 						className='add-btn'
+						onClick={() => {
+							addNote({
+								...inputCardDetails,
+								tag: inputCardDetails.tag === "Tag" ? "Home" : inputCardDetails.tag,
+								priority: inputCardDetails.priority === "Priority" ? "Low" : inputCardDetails.priority
+							})
+							setInputCardDetails({
+								pinned: false,
+								title: "",
+								description: "",
+								tag: "Tag",
+								priority: "Priority",
+								selectedBackgroundColor: "#faf8f8",
+							})
+						}}
 					>
 						Add
 					</button>

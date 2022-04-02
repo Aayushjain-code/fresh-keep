@@ -6,9 +6,11 @@
 	top: 0;
 
 }
-
+.box-container{
+	margin-top: -10rem;
+}
 .product-container {
-	margin-top: 6rem;
+	margin-top: 16rem;
 }
 
 .filter-container {

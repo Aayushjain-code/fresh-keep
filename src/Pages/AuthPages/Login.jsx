@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom';
-import { useAuth } from '../../Context/auth-context';
+import { useAuth } from '../../Context/authContext';
 import './auth.css'
 
 const Login = () => {
@@ -30,7 +30,7 @@ const Login = () => {
 			setError({ isError: true, text: 'Invalid Email-Id' })
 		} else {
 			login(userDetails);
-			console.log(userDetails, "loginUp");
+			// console.log(userDetails, "loginUp");
 			setUserDetails({ email: '', password: '' })
 		}
 	}

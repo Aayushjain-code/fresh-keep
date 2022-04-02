@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom';
-import { useAuth } from '../../Context/auth-context';
+import { useAuth } from '../../Context/authContext';
 import './auth.css'
 
 
@@ -30,7 +30,7 @@ const Signup = () => {
 
 
 	const submitHandler = (e) => {
-		console.log(userDetails);
+		// console.log(userDetails);
 		e.preventDefault()
 		const passwordValidation = /^(?=.*\d)(?=.*[a-z]).{5,}$/;
 

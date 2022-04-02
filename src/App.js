@@ -30,7 +30,7 @@ function App() {
       {/* <Navbar /> */}
       {/* <Sidebar /> */}
       <Routes>
-        <Route path="/mockman" element={<Mockman />} />
+        {/* <Route path="/mockman" element={<Mockman />} /> */}
         <Route path="/" element={<LandingPage />} />
 
         <Route element={<RequireAuth />}>

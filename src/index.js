@@ -5,8 +5,8 @@ import App from "./App";
 import { makeServer } from "./server";
 import { BrowserRouter } from "react-router-dom";
 
-import { AuthProvider } from "./Context/auth-context";
-import { NotesProvider } from "./Context/note-context";
+import { AuthProvider } from "./Context/authContext";
+import { NoteProvider } from "./Context/noteContext";
 
 
 // Call make Server
@@ -14,13 +14,13 @@ makeServer();
 
 ReactDOM.render(
   <React.StrictMode>
-    <NotesProvider>
-      <AuthProvider>
+    <AuthProvider>
+      <NoteProvider>
         <BrowserRouter>
           <App />
         </BrowserRouter>
-      </AuthProvider>
-    </NotesProvider>
+      </NoteProvider>
+    </AuthProvider>
   </React.StrictMode>,
   document.getElementById("root")
 );

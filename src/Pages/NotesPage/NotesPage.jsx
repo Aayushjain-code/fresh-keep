@@ -1,11 +1,21 @@
-import React from 'react'
+import { useEffect, useState } from 'react'
 import NewNote from './NewNote/NewNote'
 import NoteCreate from './NoteCreate/NoteCreate'
 import "./NotesPage.css"
+
+
+import { useAuth } from "../../Context/authContext";
+import { useNotes } from "../../Context/noteContext";
+
 const NotesPage = () => {
+
+	const { authState } = useAuth();
+	const { notes } = authState;
+	const { getNotes, addNote } = useNotes();
+
+
 	return (
 		<>
-
 			<div className="main-container">
 
 				<div className="filter-container">
@@ -30,20 +40,14 @@ const NotesPage = () => {
 							/> <span>low</span>
 						</label>
 					</span>
-
-
-
-
-
 				</div>
 
 				<div className='product-container'>
 					<NoteCreate />
 					<section className="cards" id="cards">
 						<div className="box-container flex-row-container2">
-							<NewNote />
-							<NewNote />
-							<NewNote />
+							{notes.map((note) => <NewNote note={note} />)}
+
 
 						</div>
 
