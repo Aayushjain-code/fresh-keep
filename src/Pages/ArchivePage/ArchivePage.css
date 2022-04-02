@@ -1,7 +1,7 @@
 .main-container {
 	margin-top: 5rem;
 	display: grid;
-	grid-template-columns: 1fr 4fr;
+	grid-template-columns: 1fr 5fr;
 	/* position: absolute; */
 	top: 0;
 
@@ -12,16 +12,22 @@
 	display: flex;
 }
 
+.cards{
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+}
 
- .filter-container-landing3 {
+
+ .filter-container-landing31 {
 	margin-top: 12rem;
 	margin-bottom: 10rem;
 	margin-left: 2rem;
 	background-color: var(--bg-color-1);
-	padding: 1rem;
+	padding: 0rem;
 	border-radius: .5rem;
-	max-height: 8rem;
-	max-width: 25rem;
+	max-height: 2rem;
+	max-width: 2rem;
 }
 /*
 .filter-heading,

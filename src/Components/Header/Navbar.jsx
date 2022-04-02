@@ -1,13 +1,13 @@
 import React from 'react'
 import "./Navbar.css"
 import { Link } from "react-router-dom"
-import { useAuth } from '../../Context/auth-context'
+import { useAuth } from '../../Context/authContext'
 
 const NavBar = () => {
 	const { logout } = useAuth();
 	return (
 		<header class="header">
-			<Link to="/" className='logo'> <i class="fa-solid fa-book-open-reader"></i>  Fresh-Keep</Link>
+			<Link to="/notes" className='logo'> <i class="fa-solid fa-book-open-reader"></i>  Fresh-Keep</Link>
 
 			{/* <form action="" class="search-form">
 				<input type="search" name="" placeholder="Search" id="searchBox"></input>

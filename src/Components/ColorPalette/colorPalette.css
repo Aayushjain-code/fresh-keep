@@ -1,0 +1,52 @@
+.palette {
+	display: inline-block;
+	position: relative;
+	cursor: pointer;
+	font-size: 2rem;
+	text-align: center;
+	margin-left: 2rem;
+}
+
+.palette i {
+	display: inline-block;
+	line-height: 3.2rem;
+	border-radius: 50%;
+	height: 3.2rem;
+	width: 3.2rem;
+	transition: 0.2s ease-in-out;
+	color: var(--content-color);
+}
+
+.palette:hover i {
+	color: var(--primary-color);
+}
+
+.colorPaletteContainer {
+	position: absolute;
+	background-color: var(--bg-color-1);
+	display: flex;
+	padding: 5px;
+	z-index: 10;
+	flex-wrap: wrap;
+	width: 16.5rem;
+	border-radius: 1rem;
+	border:0.1rem solid black;
+}
+
+.colorPalette {
+	border:0.1rem solid black;
+	border-radius: 50%;
+	width: 3rem;
+	height: 3rem;
+	margin: 5px;
+}
+
+.colorPalette:hover {
+	border: 0.3rem solid var(--primary-color);
+}
+
+@media screen and (max-width: 850px) {
+	.colorPaletteContainer {
+		right: 5px;
+	}
+}
