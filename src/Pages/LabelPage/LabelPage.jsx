@@ -52,7 +52,7 @@ const LabelPage = () => {
 				<div className="filter-container-landing">
 
 
-					<h1 className="filter-heading">Labels</h1>
+					<h1 className="filter-heading">Tags</h1>
 					<span className="filter-sub-heading">
 						<label>
 							<input type="checkbox" name="group1"
@@ -99,6 +99,7 @@ const LabelPage = () => {
 								}}
 							/> <span>Personal</span>
 						</label>
+						<br />
 						<label>
 							<input type="checkbox" name="group1"
 								onClick={() => {
@@ -110,6 +111,7 @@ const LabelPage = () => {
 								}}
 							/> <span>Exercise</span>
 						</label>
+						<br />
 						<label>
 							<input type="checkbox" name="group1"
 								onClick={() => {
@@ -121,6 +123,7 @@ const LabelPage = () => {
 								}}
 							/> <span>Chores</span>
 						</label>
+						<br />
 						<label>
 							<input type="checkbox" name="group1"
 								onClick={() => {

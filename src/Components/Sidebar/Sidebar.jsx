@@ -1,14 +1,14 @@
 import { Link } from "react-router-dom"
 import React from 'react'
 import "./Sidebar.css"
-
+import { useAuth } from '../../Context/authContext'
 
 
 
 const Sidebar = () => {
 	return (
 		<>
-			<aside class="sidebar">
+			<div class="sidebar">
 				<ul class="m1 p1 list-non-bullet ">
 					<Link to="/notes">
 						<p class="sidebar-heading link text-decor-none">
@@ -20,13 +20,18 @@ const Sidebar = () => {
 							<i class="fa-solid fa-tag"></i>
 							Labels</p>
 					</Link>
-					<Link to="/archives">
+					<Link to="/archived">
 						<p class="sidebar-heading link text-decor-none">
 							<i class="fa-solid fa-inbox"></i>
 							Archives</p>
 					</Link>
+					<Link to="/trashed">
+						<p class="sidebar-heading link text-decor-none">
+							<i class="fa-solid fa-trash-can"></i>
+							Trashed</p>
+					</Link>
 				</ul>
-			</aside>
+			</div>
 		</>
 	)
 }
