@@ -3,8 +3,8 @@ margin-top: 10rem;
 }
 .dateOnCard{
   position: absolute;
-  padding: 0.2rem;
-  background-color:var(--bg-color-1);
+  padding: 0.4rem;
+  background-color:transparent;
   font-size: 12px ;
 }
 
