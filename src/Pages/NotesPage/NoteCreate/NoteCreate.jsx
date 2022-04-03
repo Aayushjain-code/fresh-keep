@@ -11,6 +11,7 @@ const NoteCreate = () => {
 		tag: "Tag",
 		priority: "Priority",
 		selectedBackgroundColor: "#faf8f8",
+		createdDate: null,
 	})
 
 	return (
@@ -91,8 +92,12 @@ const NoteCreate = () => {
 					<button
 						className='add-btn'
 						onClick={() => {
+
+							console.log("date", typeof (new Date().getTime()));
+							setInputCardDetails({ ...inputCardDetails, timeOfCreation: new Date().getTime() });
 							addNote({
 								...inputCardDetails,
+								createdDate: new Date().getTime().toString(),
 								tag: inputCardDetails.tag === "Tag" ? "Home" : inputCardDetails.tag,
 								priority: inputCardDetails.priority === "Priority" ? "Low" : inputCardDetails.priority
 							})

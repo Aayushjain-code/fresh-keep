@@ -21,6 +21,8 @@ const NotesPage = () => {
 
 		LowToHigh: false,
 		HighToLow: false,
+		oldest: false,
+		newest: false,
 	});
 	const [filteredNotes, setFilteredNotes] = useState([notes]);
 
@@ -36,6 +38,13 @@ const NotesPage = () => {
 			}
 			if (labels.HighToLow) {
 				newData.sort((a, b) => order[b.priority] - order[a.priority]);
+			}
+			if (labels.oldest) {
+				newData.sort((a, b) => a.createdDate - b.createdDate)
+			}
+			if (labels.newest) {
+				newData.sort((a, b) => b.createdDate - a.createdDate)
+
 			}
 			setFilteredNotes(newData);
 		})();
@@ -56,6 +65,7 @@ const NotesPage = () => {
 
 	return (
 		<>
+			{console.log("djsdnjsndjs", authState)}
 			<div className="main-container">
 				{console.log("filteredNotes", filteredNotes)}
 				<div className="filter-container">
@@ -84,13 +94,17 @@ const NotesPage = () => {
 						<br />
 						<label>
 							<input type="radio" name="group1"
-
+								onClick={() =>
+									setLabels({ ...labels, oldest: true, newest: false })
+								}
 							/> <span>Oldest</span>
 						</label>
 						<br />
 						<label>
 							<input type="radio" name="group1"
-
+								onClick={() =>
+									setLabels({ ...labels, oldest: false, newest: true })
+								}
 							/> <span>Newest</span>
 						</label>
 

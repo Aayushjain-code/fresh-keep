@@ -13,7 +13,7 @@ const LabelPage = () => {
 	const { authState } = useAuth();
 	const { notes } = authState;
 
-	const tags = ["all", "Home", "Work", "Personal"];
+	const tags = ["all", "Home", "Work", "Personal", "Exercise", "Chores", "Health"];
 
 
 	const [labels, setLabels] = useState({
@@ -21,8 +21,9 @@ const LabelPage = () => {
 		Home: false,
 		Work: false,
 		Personal: false,
-		LowToHigh: false,
-		HighToLow: false,
+		Exercise: false,
+		Chores: false,
+		Health: false,
 	});
 	const [filteredNotes, setFilteredNotes] = useState([notes]);
 
@@ -62,6 +63,9 @@ const LabelPage = () => {
 										Home: false,
 										Work: false,
 										Personal: false,
+										Exercise: false,
+										Chores: false,
+										Health: false,
 									});
 								}}
 							/>
@@ -94,6 +98,39 @@ const LabelPage = () => {
 									});
 								}}
 							/> <span>Personal</span>
+						</label>
+						<label>
+							<input type="checkbox" name="group1"
+								onClick={() => {
+									setLabels({
+										...labels,
+										all: false,
+										Exercise: !labels.Exercise,
+									});
+								}}
+							/> <span>Exercise</span>
+						</label>
+						<label>
+							<input type="checkbox" name="group1"
+								onClick={() => {
+									setLabels({
+										...labels,
+										all: false,
+										Chores: !labels.Chores,
+									});
+								}}
+							/> <span>Chores</span>
+						</label>
+						<label>
+							<input type="checkbox" name="group1"
+								onClick={() => {
+									setLabels({
+										...labels,
+										all: false,
+										Health: !labels.Health,
+									});
+								}}
+							/> <span>Health</span>
 						</label>
 					</span>
 
