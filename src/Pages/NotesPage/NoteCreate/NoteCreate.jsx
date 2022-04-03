@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import { ColorPalette } from '../../../Components/ColorPalette/ColorPalette'
 import { useNotes } from '../../../Context/noteContext';
 import "./NoteCreate.css"
+import { formatDate } from '../../../backend/utils/formatDate';
 const NoteCreate = () => {
 	const { addNote, getNotes } = useNotes();
 	const [inputCardDetails, setInputCardDetails] = useState({
