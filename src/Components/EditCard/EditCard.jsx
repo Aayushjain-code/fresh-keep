@@ -61,7 +61,7 @@ export const EditCard = ({ edit, setEdit }) => {
 								pinned: !editCardDetails.pinned,
 							})
 						}}>
-							<i class="fa-solid fa-thumbtack"></i>
+							<i className="fa-solid fa-thumbtack"></i>
 						</span>
 
 

@@ -1,19 +1,19 @@
 .sidebar {
-
-	left: 110rem;
-	margin-top: 10rem;
+	position: fixed;
+	left: 108rem;
+	margin-top: 1rem;
 	/* margin-top: 1rem; */
 	z-index: 1000;
-	width: 15rem;
+	width: 12rem;
 	background-color: var(--bg-color-1);
-	max-height: 30rem;
+	border: 0.1rem solid black;
+	max-height: 32rem;
 	border-radius: 0.5rem;
-	position: sticky;
 }
 
 .sidebar-heading {
 	font-size: 1.8rem;
-	margin-left: 5rem;
+	margin-left: 3rem;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;

@@ -22,8 +22,8 @@
 	background-color: var(--bg-color-1);
 	padding: 1rem;
 	border-radius: .5rem;
-	min-height: 25rem;
-	min-width: 30rem;
+	max-height: 25rem;
+	min-width: 19rem;
 }
 
 .filter-heading,

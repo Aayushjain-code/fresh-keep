@@ -146,8 +146,8 @@ const LabelPage = () => {
 							filteredNotes.map((note) => {
 								return (
 									<div className="box-container flex-row-container2" key={note._id}>
-										<div class="m1 card flex-r horizontal-card-container note-cards" style={{ backgroundColor: note.selectedBackgroundColor }}>
-											<div class="card-text-container">
+										<div className="m1 card flex-r horizontal-card-container note-cards" style={{ backgroundColor: note.selectedBackgroundColor }}>
+											<div className="card-text-container">
 												<h3>{note.title}</h3>
 
 												<p>{note.description}</p>
@@ -157,9 +157,9 @@ const LabelPage = () => {
 													<button className='btn card_tags'>{note.priority}</button>
 												</span>
 												<span className='card_icons_container'>
-													<i class="card_icons fa-solid fa-clock-rotate-left" onClick={() => { restoreFromArchive(note._id) }}></i>
+													<i className="card_icons fa-solid fa-clock-rotate-left" onClick={() => { restoreFromArchive(note._id) }}></i>
 
-													<i class="card_icons fa-solid fa-trash " onClick={() => { deleteFromArchive(note._id, note) }}></i>
+													<i className="card_icons fa-solid fa-trash " onClick={() => { deleteFromArchive(note._id, note) }}></i>
 												</span>
 
 											</div>

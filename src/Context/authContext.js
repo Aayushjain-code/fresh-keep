@@ -27,7 +27,6 @@ const AuthProvider = ({ children }) => {
 	const [authState, authDispatch] = useReducer(authReducer, initialAuthData)
 
 	const signUp = async (userDetails) => {
-		// console.log('hello')
 		try {
 
 			const response = await axios.post('/api/auth/signup', {
@@ -36,7 +35,6 @@ const AuthProvider = ({ children }) => {
 				email: userDetails.email,
 				password: userDetails.password
 			})
-			// console.log(response);
 			if (response.status === 201) {
 				localStorage.setItem("tokenNotesApp", response.data.encodedToken);
 				authDispatch({ type: "LOGIN_SUCCESS", payload: { toastMessage: "Signed up", name: response.data.createdUser.firstName, email: response.data.createdUser.email, userID: response.data.createdUser._id } })
@@ -52,11 +50,10 @@ const AuthProvider = ({ children }) => {
 	}
 
 	const login = async (userDetails) => {
-		// console.log(userDetails, "Sent");
 		try {
 			const response = await axios.post("/api/auth/login", { email: userDetails.email, password: userDetails.password })
 			if (response.status === 200) {
-				// console.log(response, "created");
+
 				localStorage.setItem("tokenNotesApp", response.data.encodedToken)
 				authDispatch({ type: "LOGIN_SUCCESS", payload: { toastMessage: "Logged In", name: response.data.foundUser.firstName, email: response.data.foundUser.email, userID: response.data.foundUser._id } })
 			}
@@ -71,14 +68,14 @@ const AuthProvider = ({ children }) => {
 	const testlogin = async () => {
 		const userEmail = "test123@gmail.com";
 		const userPassword = "testLogin@123";
-		// console.log("Sent Test");
+
 		try {
 			const response = await axios.post("/api/auth/login", { email: userEmail, password: userPassword })
-			// console.log(response, "test login");
+
 			if (response.status === 200) {
 				localStorage.setItem("tokenNotesApp", response.data.encodedToken)
 				authDispatch({ type: "LOGIN_SUCCESS", payload: { toastMessage: "Logged In", name: response.data.foundUser.firstName, email: response.data.foundUser.email, userID: response.data.foundUser._id } })
-				// console.log("finalState:", response.data.foundUser._id);
+
 			}
 			else if (response.status === 404 || response.status === 401) {
 				authDispatch({ type: "LOGIN_ERROR", payload: { toastMessage: "Invalid credentials" } })

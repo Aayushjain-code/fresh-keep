@@ -4,11 +4,11 @@
 	width: 15rem;
 	border-radius: 0.5rem;
 	box-shadow: var(--box-shadow);
-	z-index: 3;
+	z-index: 3000;
 	top: 2rem;
 	right: 0;
 	color: var(--text-white);
-	padding: 2rem 4rem;
+	padding: 1rem 1rem;
 	align-items: center;
 }
 

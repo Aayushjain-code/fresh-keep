@@ -45,13 +45,13 @@ const NoteCreate = () => {
 							<span className="pin-icon" onClick={() =>
 								setInputCardDetails({ ...inputCardDetails, pinned: !inputCardDetails.pinned })
 							}>
-								<i class="fa-solid fa-thumbtack"></i>
+								<i className="fa-solid fa-thumbtack"></i>
 							</span>
 						) : (
 							<span className="pin-icon" onClick={() =>
 								setInputCardDetails({ ...inputCardDetails, pinned: !inputCardDetails.pinned })
 							}>
-								<i class="fa-solid fa-thumbtack"></i>
+								<i className="fa-solid fa-thumbtack"></i>
 							</span>
 						)}
 

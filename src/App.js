@@ -31,12 +31,12 @@ function App() {
         location.pathname === "/trashed" ? (
         <Navbar />
       ) : null}
-      {/* {location.pathname === "/notes" ||
+      {location.pathname === "/notes" ||
         location.pathname === "/archived" ||
         location.pathname === "/labels" ||
         location.pathname === "/trashed" ? (
         <Sidebar />
-      ) : null} */}
+      ) : null}
 
       {/* <Navbar /> */}
       <Routes>

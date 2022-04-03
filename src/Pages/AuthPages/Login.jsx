@@ -30,7 +30,6 @@ const Login = () => {
 			setError({ isError: true, text: 'Invalid Email-Id' })
 		} else {
 			login(userDetails);
-			// console.log(userDetails, "loginUp");
 			setUserDetails({ email: '', password: '' })
 		}
 	}
@@ -48,7 +47,7 @@ const Login = () => {
 						<input type="text" placeholder="Enter your email" value={userDetails.email} onChange={(e) => setUserDetails({ ...userDetails, email: e.target.value })}></input>
 					</div>
 					<div className="input-box">
-						{toggleShowPassword ? <i class="fas fa-eye icon" onClick={() => setToggleShowPassword(!toggleShowPassword)}></i> : <i class="fas fa-eye-slash icon" onClick={() => setToggleShowPassword(!toggleShowPassword)}></i>}
+						{toggleShowPassword ? <i className="fas fa-eye icon" onClick={() => setToggleShowPassword(!toggleShowPassword)}></i> : <i className="fas fa-eye-slash icon" onClick={() => setToggleShowPassword(!toggleShowPassword)}></i>}
 
 						<input type={toggleShowPassword ? "password" : 'text'} placeholder="Create password" value={userDetails.password} onChange={(e) => setUserDetails({ ...userDetails, password: e.target.value })}></input>
 					</div>

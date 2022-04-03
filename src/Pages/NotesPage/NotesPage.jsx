@@ -65,9 +65,7 @@ const NotesPage = () => {
 
 	return (
 		<>
-			{console.log("djsdnjsndjs", authState)}
 			<div className="main-container">
-				{console.log("filteredNotes", filteredNotes)}
 				<div className="filter-container">
 					<span className="filter-sub-heading">
 						<label style={{ fontSize: '1.8rem' }}>Priority Sorting: </label>
@@ -118,7 +116,7 @@ const NotesPage = () => {
 				<section className="cards" id="cards" style={{ minWidth: "10rem" }}>
 					<div className="box-container flex-row-container2 " style={{ minWidth: "130rem", marginLeft: "4rem" }}>
 
-						{filteredNotes.map((note) => <NewNote note={note} edit={edit} setEdit={setEdit} />)}
+						{filteredNotes.map((note) => <NewNote key={note._id} note={note} edit={edit} setEdit={setEdit} />)}
 
 
 					</div>

@@ -53,6 +53,9 @@
 .header .search-form label:hover {
 	color: var(--primary);
 }
+.header .icons{
+	font-size: 1rem;
+}
 
 .header .icons div {
 	height: 4.5rem;
@@ -116,7 +119,10 @@
 }
 
 
-
+.sidebar-heading{
+	margin-bottom: 0;
+	padding-bottom: 0;
+}
 
 .header .login-form.active {
 	transform: scale(1);
