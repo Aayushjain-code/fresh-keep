@@ -38,7 +38,7 @@ const ArchivePage = () => {
 												<span className='card_icons_container'>
 													<i class="card_icons fa-solid fa-box-archive" onClick={() => { restoreFromArchive(note._id) }}></i>
 
-													<i class="card_icons fa-solid fa-trash " onClick={() => { deleteFromArchive(note._id) }}></i>
+													<i class="card_icons fa-solid fa-trash " onClick={() => { deleteFromArchive(note._id, note) }}></i>
 												</span>
 
 											</div>

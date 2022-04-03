@@ -90,6 +90,7 @@ const AuthProvider = ({ children }) => {
 
 
 	const logout = () => {
+		localStorage.clear();
 		authDispatch({ type: "LOGOUT", payload: { toastMessage: "Logged out", name: "", email: "", userID: "" } })
 	}
 

@@ -34,7 +34,7 @@ const NewNote = ({ note, edit, setEdit }) => {
 						});
 					}}></i>
 					<i class="card_icons fa-solid fa-box-archive" onClick={() => { archiveNote(note._id, note) }}></i>
-					<i class="card_icons fa-solid fa-trash " onClick={() => { deleteNote(note._id) }}></i>
+					<i class="card_icons fa-solid fa-trash " onClick={() => { deleteNote(note._id, note) }}></i>
 				</span>
 
 			</div>

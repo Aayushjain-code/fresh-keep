@@ -25,7 +25,12 @@ function App() {
 
   return (
     <div className="App">
-      {(location.pathname === '/login' || location.pathname === '/signup' || location.pathname === '/') ? null : <Navbar />}
+      {location.pathname === "/home" ||
+        location.pathname === "/archived" ||
+        location.pathname === "/label" ||
+        location.pathname === "/trash" ? (
+        <Header />
+      ) : null}
 
       {/* <Navbar /> */}
       {/* <Sidebar /> */}
