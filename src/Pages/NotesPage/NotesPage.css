@@ -7,21 +7,23 @@
 
 }
 .box-container{
-	margin-top: -10rem;
+	display: flex;
+	margin-top: -8rem;
 }
 .product-container {
 	margin-top: 16rem;
+    min-width: 120rem;
 }
 
 .filter-container {
-	margin-top: 12rem;
-	margin-bottom: 10rem;
+	margin-top: 8em;
+	/* margin-bottom: 10rem; */
 	margin-left: 2rem;
 	background-color: var(--bg-color-1);
 	padding: 1rem;
 	border-radius: .5rem;
-	max-height: 24rem;
-	max-width: 25rem;
+	min-height: 25rem;
+	min-width: 30rem;
 }
 
 .filter-heading,

@@ -56,16 +56,18 @@ const NotesPage = () => {
 
 				<div className='product-container'>
 					<NoteCreate />
-					<section className="cards" id="cards">
-						<div className="box-container flex-row-container2">
-							{notes.map((note) => <NewNote note={note} edit={edit} setEdit={setEdit} />)}
 
-
-						</div>
-
-						{edit.isEdit && <EditCard edit={edit} setEdit={setEdit} />}
-					</section>
 				</div>
+				<section className="cards" id="cards" style={{ minWidth: "10rem" }}>
+					<div className="box-container flex-row-container2 " style={{ minWidth: "130rem", marginLeft: "4rem" }}>
+
+						{notes.map((note) => <NewNote note={note} edit={edit} setEdit={setEdit} />)}
+
+
+					</div>
+
+					{edit.isEdit && <EditCard edit={edit} setEdit={setEdit} />}
+				</section>
 			</div>
 
 		</>

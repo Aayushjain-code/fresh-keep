@@ -11,11 +11,11 @@ const ArchivePage = () => {
 	return (
 		<>
 
-			<div className="main-container">
+			<div className="main-container2">
 
 				<div className="filter-container-landing31"></div>
 
-				<div className='product-container'>
+				<div className='product-container3'>
 					<section className="cards" id="cards">
 
 

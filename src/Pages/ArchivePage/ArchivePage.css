@@ -1,21 +1,24 @@
 .main-container {
 	margin-top: 5rem;
-	display: grid;
-	grid-template-columns: 1fr 5fr;
-	/* position: absolute; */
-	top: 0;
+	/* display: grid;
+	grid-template-columns: 1fr 5fr; */
+	position: absolute;
+	/* top: 0; */
 
 }
 
-.product-container2 {
+.product-container3 {
 	margin-top: 6rem;
-	display: flex;
+	/* display: flex; */
+	min-width: 130rem;
+	margin-left:-4rem;
 }
 
 .cards{
 	display: flex;
 	flex-direction: row;
 	flex-wrap: wrap;
+
 }
 
 
@@ -29,6 +32,8 @@
 	max-height: 2rem;
 	max-width: 2rem;
 }
+
+
 /*
 .filter-heading,
 .filter-sub-heading {
