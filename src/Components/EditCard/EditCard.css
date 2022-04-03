@@ -2,7 +2,7 @@
 	position: fixed;
 	inset: 16rem 5rem;
 	margin-left: 25rem;
-	backdrop-filter: blur(15px);
+	backdrop-filter: blur(5px);
 }
 .input-container{
 	border:0.1rem solid var(--primary);

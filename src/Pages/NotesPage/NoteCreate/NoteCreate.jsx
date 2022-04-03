@@ -1,9 +1,9 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { ColorPalette } from '../../../Components/ColorPalette/ColorPalette'
 import { useNotes } from '../../../Context/noteContext';
 import "./NoteCreate.css"
 const NoteCreate = () => {
-	const { addNote } = useNotes();
+	const { addNote, getNotes } = useNotes();
 	const [inputCardDetails, setInputCardDetails] = useState({
 		pinned: false,
 		title: "",
@@ -11,6 +11,7 @@ const NoteCreate = () => {
 		tag: "Tag",
 		priority: "Priority",
 		selectedBackgroundColor: "#faf8f8",
+		createdDate: null,
 	})
 
 	return (
@@ -91,8 +92,12 @@ const NoteCreate = () => {
 					<button
 						className='add-btn'
 						onClick={() => {
+
+							setInputCardDetails({ ...inputCardDetails, timeOfCreation: new Date().getTime() });
+
 							addNote({
 								...inputCardDetails,
+								createdDate: new Date().getTime().toString(),
 								tag: inputCardDetails.tag === "Tag" ? "Home" : inputCardDetails.tag,
 								priority: inputCardDetails.priority === "Priority" ? "Low" : inputCardDetails.priority
 							})

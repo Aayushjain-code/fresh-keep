@@ -87,6 +87,7 @@ export const EditCard = ({ edit, setEdit }) => {
 							<option value="Health">Health</option>
 						</select>
 						<select
+							className="tag"
 							onChange={(e) => {
 								setEditCardDetails({
 									...editCardDetails,
