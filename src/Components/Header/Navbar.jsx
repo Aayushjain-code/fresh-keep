@@ -2,7 +2,7 @@ import React from 'react'
 import "./Navbar.css"
 import { Link } from "react-router-dom"
 import { useAuth } from '../../Context/authContext'
-
+import { Toast } from "../Toast/toast";
 const NavBar = () => {
 	const { logout } = useAuth();
 	return (
@@ -47,7 +47,7 @@ const NavBar = () => {
 					<i class="fa-solid fas fa-user"></i>
 					Logout</p>
 			</div>
-
+			<Toast />
 
 
 		</header>
