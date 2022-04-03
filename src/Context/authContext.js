@@ -15,7 +15,7 @@ const initialAuthData = {
 	userID: "",
 	notes: [],
 	archivedNotes: [],
-	trashNotes: [],
+	trashedNotes: [],
 }
 
 

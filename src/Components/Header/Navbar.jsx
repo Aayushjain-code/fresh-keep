@@ -23,7 +23,7 @@ const NavBar = () => {
 					<i class="fa-solid fa-tag"></i>
 					Labels</p>
 			</Link>
-			<Link to="/archives">
+			<Link to="/archived">
 				<p class="sidebar-heading link text-decor-none">
 					<i class="fa-solid fa-inbox"></i>
 					Archives</p>

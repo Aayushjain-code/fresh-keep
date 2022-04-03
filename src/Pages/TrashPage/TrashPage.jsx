@@ -1,107 +1,66 @@
 import React from 'react'
 import "./TrashPage.css"
 
+import { useEffect } from "react";
+import { useAuth } from "../../Context/authContext";
+import { useTrash } from "../../Context/trashContext";
+
 const TrashPage = () => {
+	const { authState } = useAuth();
+	const { trashedNotes } = authState;
+
+	// const { _id, title, description, tag, priority, selectedBackgroundColor } =
+	// 	item;
+	const { restoreFromTrash, removeFromTrash } = useTrash();
 	return (
 		<>
+
 			<div className="main-container">
 
-				<div className="filter-container-landing3">
+				<div className="filter-container-landing31"></div>
 
-					<span className="filter-sub-heading">
-						<label>
-							<input type="checkbox" name="group1"
-
-							/>
-							<span> Clear Archive</span>
-						</label>
-						<br />
-					</span>
-
-				</div>
 				<div className='product-container'>
 					<section className="cards" id="cards">
-						<div className="box-container flex-row-container2">
-							<div class="m1 card flex-r horizontal-card-container note-cards">
-								{/* left */}
-								<i class="card-close-btn fas fa-times"></i>
-								<div class="card-text-container">
-									{/* image */}
-									{/* <div class="card-btns align-center">
-										<button class="btn btn-with-icon"><i class="p1-right fas fa-tag"></i>Label</button>
-										<button class="m1 btn btn-primary-outline">Priority</button>
-									</div> */}
-								</div>
-							</div>
-							<div class="m1 card flex-r horizontal-card-container note-cards">
-								{/* left */}
-								<i class="card-close-btn fas fa-times"></i>
-								<div class="card-text-container">
-									{/* image */}
-									{/* <div class="card-btns align-center">
-										<button class="btn btn-with-icon"><i class="p1-right fas fa-tag"></i>Label</button>
-										<button class="m1 btn btn-primary-outline">Priority</button>
-									</div> */}
-								</div>
-							</div>
-							<div class="m1 card flex-r horizontal-card-container note-cards">
-								{/* left */}
-								<i class="card-close-btn fas fa-times"></i>
-								<div class="card-text-container">
-									{/* image */}
-									{/* <div class="card-btns align-center">
-										<button class="btn btn-with-icon"><i class="p1-right fas fa-tag"></i>Label</button>
-										<button class="m1 btn btn-primary-outline">Priority</button>
-									</div> */}
-								</div>
-							</div>
-							<div class="m1 card flex-r horizontal-card-container note-cards">
-								{/* left */}
-								<i class="card-close-btn fas fa-times"></i>
-								<div class="card-text-container">
-									{/* image */}
-									{/* <div class="card-btns align-center">
-										<button class="btn btn-with-icon"><i class="p1-right fas fa-tag"></i>Label</button>
-										<button class="m1 btn btn-primary-outline">Priority</button>
-									</div> */}
-								</div>
-							</div>
-							<div class="m1 card flex-r horizontal-card-container note-cards">
-								{/* left */}
-								<i class="card-close-btn fas fa-times"></i>
-								<div class="card-text-container">
-									{/* image */}
-									{/* <div class="card-btns align-center">
-										<button class="btn btn-with-icon"><i class="p1-right fas fa-tag"></i>Label</button>
-										<button class="m1 btn btn-primary-outline">Priority</button>
-									</div> */}
-								</div>
-							</div>
-							<div class="m1 card flex-r horizontal-card-container note-cards">
-								{/* left */}
-								<i class="card-close-btn fas fa-times"></i>
-								<div class="card-text-container">
-									{/* image */}
-									{/* <div class="card-btns align-center">
-										<button class="btn btn-with-icon"><i class="p1-right fas fa-tag"></i>Label</button>
-										<button class="m1 btn btn-primary-outline">Priority</button>
-									</div> */}
-								</div>
-							</div>
-							<div class="m1 card flex-r horizontal-card-container note-cards">
-								{/* left */}
-								<i class="card-close-btn fas fa-times"></i>
-								<div class="card-text-container">
-									{/* image */}
-									{/* <div class="card-btns align-center">
-										<button class="btn btn-with-icon"><i class="p1-right fas fa-tag"></i>Label</button>
-										<button class="m1 btn btn-primary-outline">Priority</button>
-									</div> */}
-								</div>
-							</div>
-						</div>
+
+
+						{trashedNotes.length === 0 ? <h1 style={{ marginTop: '15rem', marginLeft: '4rem' }}>No Trashed</h1>
+							:
+							trashedNotes.map((note) => {
+								return (
+									<div className="box-container flex-row-container2"
+										key={note._id}
+									>
+										<div class="m1 card flex-r horizontal-card-container note-cards"
+
+											style={{ backgroundColor: note.selectedBackgroundColor }}>
+											<i class=" card-close-btn fa-solid fa-thumbtack"></i>
+											<div class="card-text-container">
+												<h3>{note.title}</h3>
+
+												<p>{note.description}</p>
+												<span className='card_tags_container'>
+													<h6>Date Created</h6>
+													<button className='btn card_tags'>{note.tag}</button>
+													<button className='btn card_tags'>{note.priority}</button>
+												</span>
+												<span className='card_icons_container'>
+													<i class="card_icons fa-solid fa-arrow-rotate-left" onClick={() => {
+														restoreFromTrash(note);
+													}}></i>
+													<i class="card_icons fa-solid fa-trash " onClick={() => {
+														removeFromTrash(note._id);
+													}}></i>
+												</span>
+
+											</div>
+										</div>
+									</div>
+								)
+							})}
+
 					</section>
 				</div>
+
 			</div>
 		</>
 	)

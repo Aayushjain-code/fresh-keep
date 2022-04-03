@@ -25,11 +25,11 @@ function App() {
 
   return (
     <div className="App">
-      {location.pathname === "/home" ||
+      {location.pathname === "/notes" ||
         location.pathname === "/archived" ||
-        location.pathname === "/label" ||
-        location.pathname === "/trash" ? (
-        <Header />
+        location.pathname === "/labels" ||
+        location.pathname === "/trashed" ? (
+        <Navbar />
       ) : null}
 
       {/* <Navbar /> */}
@@ -41,7 +41,7 @@ function App() {
         <Route element={<RequireAuth />}>
           <Route path="/notes" element={<NotesPage />} />
           <Route path="/labels" element={<LabelPage />} />
-          <Route path="/archives" element={<ArchivePage />} />
+          <Route path="/archived" element={<ArchivePage />} />
           <Route path="/trashed" element={<TrashPage />} />
         </Route>
 
