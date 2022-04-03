@@ -1,9 +1,9 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { ColorPalette } from '../../../Components/ColorPalette/ColorPalette'
 import { useNotes } from '../../../Context/noteContext';
 import "./NoteCreate.css"
 const NoteCreate = () => {
-	const { addNote } = useNotes();
+	const { addNote, getNotes } = useNotes();
 	const [inputCardDetails, setInputCardDetails] = useState({
 		pinned: false,
 		title: "",

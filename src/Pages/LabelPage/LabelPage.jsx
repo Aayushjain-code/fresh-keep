@@ -1,7 +1,49 @@
 import React from 'react'
 import "./LabelPage.css"
 
+
+import { useEffect, useState } from "react";
+import { useNotes } from '../../Context/noteContext';
+import { useAuth } from '../../Context/authContext';
+
 const LabelPage = () => {
+
+
+	const { getNotes } = useNotes();
+	const { authState } = useAuth();
+	const { notes } = authState;
+
+	const tags = ["all", "Home", "Work", "Personal"];
+
+
+	const [labels, setLabels] = useState({
+		all: true,
+		Home: false,
+		Work: false,
+		Personal: false,
+		LowToHigh: false,
+		HighToLow: false,
+	});
+	const [filteredNotes, setFilteredNotes] = useState([notes]);
+
+	useEffect(() => {
+		getNotes();
+	}, []);
+
+	useEffect(() => {
+		(function () {
+			let newData = [...notes];
+
+			if (labels.all) {
+				setFilteredNotes(newData);
+			} else {
+				const selectedTags = tags.filter((item) => labels[item]);
+				newData = newData.filter((item) => selectedTags.includes(item.tag));
+				setFilteredNotes(newData);
+			}
+		})();
+	}, [labels]);
+
 	return (
 		<>
 			<div className="main-container">
@@ -13,47 +55,78 @@ const LabelPage = () => {
 					<span className="filter-sub-heading">
 						<label>
 							<input type="checkbox" name="group1"
-
+								onClick={() => {
+									setLabels({
+										...labels,
+										all: !labels.all,
+										Home: false,
+										Work: false,
+										Personal: false,
+									});
+								}}
 							/>
-							<span> Home</span>
+							<span> All</span>
 						</label>
 						<br />
 						<label>
 							<input type="checkbox" name="group1"
+								onClick={() => {
+									setLabels({ ...labels, all: false, Home: !labels.Home });
+								}}
+							/> <span>Home</span>
+						</label>
+						<br />
+						<label>
+							<input type="checkbox" name="group1"
+								onClick={() => {
+									setLabels({ ...labels, all: false, Work: !labels.Work });
+								}}
 							/> <span>Work</span>
 						</label>
 						<br />
 						<label>
 							<input type="checkbox" name="group1"
+								onClick={() => {
+									setLabels({
+										...labels,
+										all: false,
+										Personal: !labels.Personal,
+									});
+								}}
 							/> <span>Personal</span>
-						</label>
-						<br />
-						<label>
-							<input type="checkbox" name="group1"
-							/> <span>Health</span>
 						</label>
 					</span>
 
 				</div>
 				<div className='product-container'>
 					<section className="cards" id="cards">
-						<div className="box-container flex-row-container2">
 
+						{filteredNotes.length === 0 ? <h1 style={{ marginTop: '15rem', marginLeft: '4rem' }}>No filteredNotes</h1>
+							:
+							filteredNotes.map((note) => {
+								return (
+									<div className="box-container flex-row-container2" key={note._id}>
+										<div class="m1 card flex-r horizontal-card-container note-cards" style={{ backgroundColor: note.selectedBackgroundColor }}>
+											<div class="card-text-container">
+												<h3>{note.title}</h3>
 
-							<div class="m1 card flex-r horizontal-card-container note-cards">
-								{/* left */}
-								<i class="card-close-btn fas fa-times"></i>
-								<div class="card-text-container">
-									{/* image */}
-									{/* <div class="card-btns align-center">
-										<button class="btn btn-with-icon"><i class="p1-right fas fa-tag"></i>Label</button>
-										<button class="m1 btn btn-primary-outline">Priority</button>
-									</div> */}
-								</div>
-							</div>
+												<p>{note.description}</p>
+												<span className='card_tags_container'>
+													<h6>Date Created</h6>
+													<button className='btn card_tags'>{note.tag}</button>
+													<button className='btn card_tags'>{note.priority}</button>
+												</span>
+												<span className='card_icons_container'>
+													<i class="card_icons fa-solid fa-clock-rotate-left" onClick={() => { restoreFromArchive(note._id) }}></i>
 
+													<i class="card_icons fa-solid fa-trash " onClick={() => { deleteFromArchive(note._id, note) }}></i>
+												</span>
 
-						</div>
+											</div>
+										</div>
+									</div>
+								)
+							})}
 					</section>
 				</div>
 			</div>
