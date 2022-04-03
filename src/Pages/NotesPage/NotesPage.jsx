@@ -31,14 +31,13 @@ const NotesPage = () => {
 			<div className="main-container">
 
 				<div className="filter-container">
-					<h1 className="filter-heading">Notes</h1>
 					<span className="filter-sub-heading">
 						<label style={{ fontSize: '1.8rem' }}>Priority Sorting: </label>
 						<br />
 						<label>
 							<input type="radio" name="group1"
 
-							/> <span>high</span>
+							/> <span>High</span>
 						</label>
 						<br />
 						<label>
@@ -49,8 +48,24 @@ const NotesPage = () => {
 						<br />
 						<label>
 							<input type="radio" name="group1"
-							/> <span>low</span>
+							/> <span>Low</span>
 						</label>
+					</span>
+					<span className="filter-sub-heading">
+						<label style={{ fontSize: '1.8rem' }}>Sort By Date: </label>
+						<br />
+						<label>
+							<input type="radio" name="group1"
+
+							/> <span>Oldest</span>
+						</label>
+						<br />
+						<label>
+							<input type="radio" name="group1"
+
+							/> <span>Newest</span>
+						</label>
+
 					</span>
 				</div>
 
