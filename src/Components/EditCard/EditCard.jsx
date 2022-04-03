@@ -21,7 +21,7 @@ export const EditCard = ({ edit, setEdit }) => {
 	return (
 
 		<div className="modal-edit flex flex-align-center flex-justify-center">
-			{console.log("ddd", edit.editItem)}
+
 			<div
 				style={{ backgroundColor: editCardDetails.selectedBackgroundColor }}
 				className="input-container cont-shadow"
