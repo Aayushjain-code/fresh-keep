@@ -7,27 +7,7 @@ const LabelPage = () => {
 			<div className="main-container">
 
 				<div className="filter-container-landing">
-					{/* <h1 className="filter-heading">Notes</h1> */}
-					{/* <span className="filter-sub-heading">
-						<label style={{ fontSize: '1.8rem' }}>Priority Sorting: </label>
-						<br />
-						<label>
-							<input type="radio" name="group1"
 
-							/> <span>high</span>
-						</label>
-						<br />
-						<label>
-							<input type="radio" name="group1"
-
-							/> <span>Medium</span>
-						</label>
-						<br />
-						<label>
-							<input type="radio" name="group1"
-							/> <span>low</span>
-						</label>
-					</span> */}
 
 					<h1 className="filter-heading">Labels</h1>
 					<span className="filter-sub-heading">
@@ -54,11 +34,12 @@ const LabelPage = () => {
 						</label>
 					</span>
 
-					{/* <h1 className="filter-heading">Archived</h1> */}
 				</div>
 				<div className='product-container'>
 					<section className="cards" id="cards">
 						<div className="box-container flex-row-container2">
+
+
 							<div class="m1 card flex-r horizontal-card-container note-cards">
 								{/* left */}
 								<i class="card-close-btn fas fa-times"></i>
@@ -70,72 +51,8 @@ const LabelPage = () => {
 									</div> */}
 								</div>
 							</div>
-							<div class="m1 card flex-r horizontal-card-container note-cards">
-								{/* left */}
-								<i class="card-close-btn fas fa-times"></i>
-								<div class="card-text-container">
-									{/* image */}
-									{/* <div class="card-btns align-center">
-										<button class="btn btn-with-icon"><i class="p1-right fas fa-tag"></i>Label</button>
-										<button class="m1 btn btn-primary-outline">Priority</button>
-									</div> */}
-								</div>
-							</div>
-							<div class="m1 card flex-r horizontal-card-container note-cards">
-								{/* left */}
-								<i class="card-close-btn fas fa-times"></i>
-								<div class="card-text-container">
-									{/* image */}
-									{/* <div class="card-btns align-center">
-										<button class="btn btn-with-icon"><i class="p1-right fas fa-tag"></i>Label</button>
-										<button class="m1 btn btn-primary-outline">Priority</button>
-									</div> */}
-								</div>
-							</div>
-							<div class="m1 card flex-r horizontal-card-container note-cards">
-								{/* left */}
-								<i class="card-close-btn fas fa-times"></i>
-								<div class="card-text-container">
-									{/* image */}
-									{/* <div class="card-btns align-center">
-										<button class="btn btn-with-icon"><i class="p1-right fas fa-tag"></i>Label</button>
-										<button class="m1 btn btn-primary-outline">Priority</button>
-									</div> */}
-								</div>
-							</div>
-							<div class="m1 card flex-r horizontal-card-container note-cards">
-								{/* left */}
-								<i class="card-close-btn fas fa-times"></i>
-								<div class="card-text-container">
-									{/* image */}
-									{/* <div class="card-btns align-center">
-										<button class="btn btn-with-icon"><i class="p1-right fas fa-tag"></i>Label</button>
-										<button class="m1 btn btn-primary-outline">Priority</button>
-									</div> */}
-								</div>
-							</div>
-							<div class="m1 card flex-r horizontal-card-container note-cards">
-								{/* left */}
-								<i class="card-close-btn fas fa-times"></i>
-								<div class="card-text-container">
-									{/* image */}
-									{/* <div class="card-btns align-center">
-										<button class="btn btn-with-icon"><i class="p1-right fas fa-tag"></i>Label</button>
-										<button class="m1 btn btn-primary-outline">Priority</button>
-									</div> */}
-								</div>
-							</div>
-							<div class="m1 card flex-r horizontal-card-container note-cards">
-								{/* left */}
-								<i class="card-close-btn fas fa-times"></i>
-								<div class="card-text-container">
-									{/* image */}
-									{/* <div class="card-btns align-center">
-										<button class="btn btn-with-icon"><i class="p1-right fas fa-tag"></i>Label</button>
-										<button class="m1 btn btn-primary-outline">Priority</button>
-									</div> */}
-								</div>
-							</div>
+
+
 						</div>
 					</section>
 				</div>
