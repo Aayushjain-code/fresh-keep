@@ -1,6 +1,12 @@
 .note-cards{
 margin-top: 10rem;
 }
+.dateOnCard{
+  position: absolute;
+  padding: 0.2rem;
+  background-color:var(--bg-color-1);
+  font-size: 12px ;
+}
 
 .note-icon-container {
   margin-left: 30rem;

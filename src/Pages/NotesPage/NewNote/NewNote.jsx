@@ -12,7 +12,6 @@ const NewNote = ({ note, edit, setEdit }) => {
 
 				<p>{note.description}</p>
 				<span className='card_tags_container'>
-					<h6>Date Created</h6>
 					<button className='btn card_tags'>{note.tag}</button>
 					<button className='btn card_tags'>{note.priority}</button>
 				</span>
@@ -38,6 +37,8 @@ const NewNote = ({ note, edit, setEdit }) => {
 				</span>
 
 			</div>
+
+			<h6 className='dateOnCard'>Created At: {new Date(parseInt(note.createdDate)).toLocaleString(undefined, { timeZone: 'Asia/Kolkata' })}</h6>
 		</div>
 	)
 }

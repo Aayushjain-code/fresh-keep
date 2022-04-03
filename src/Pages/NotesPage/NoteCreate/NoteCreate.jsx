@@ -93,8 +93,8 @@ const NoteCreate = () => {
 						className='add-btn'
 						onClick={() => {
 
-							console.log("date", typeof (new Date().getTime()));
 							setInputCardDetails({ ...inputCardDetails, timeOfCreation: new Date().getTime() });
+
 							addNote({
 								...inputCardDetails,
 								createdDate: new Date().getTime().toString(),
