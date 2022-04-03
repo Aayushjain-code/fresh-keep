@@ -9,8 +9,6 @@ const TrashPage = () => {
 	const { authState } = useAuth();
 	const { trashedNotes } = authState;
 
-	// const { _id, title, description, tag, priority, selectedBackgroundColor } =
-	// 	item;
 	const { restoreFromTrash, removeFromTrash } = useTrash();
 	return (
 		<>
@@ -31,9 +29,7 @@ const TrashPage = () => {
 										key={note._id}
 									>
 										<div class="m1 card flex-r horizontal-card-container note-cards"
-
 											style={{ backgroundColor: note.selectedBackgroundColor }}>
-											<i class=" card-close-btn fa-solid fa-thumbtack"></i>
 											<div class="card-text-container">
 												<h3>{note.title}</h3>
 

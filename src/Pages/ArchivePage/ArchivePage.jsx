@@ -23,9 +23,8 @@ const ArchivePage = () => {
 							:
 							archivedNotes.map((note) => {
 								return (
-									<div className="box-container flex-row-container2">
-										<div class="m1 card flex-r horizontal-card-container note-cards" >
-											<i class=" card-close-btn fa-solid fa-thumbtack"></i>
+									<div className="box-container flex-row-container2" key={note._id}>
+										<div class="m1 card flex-r horizontal-card-container note-cards" style={{ backgroundColor: note.selectedBackgroundColor }}>
 											<div class="card-text-container">
 												<h3>{note.title}</h3>
 
@@ -36,7 +35,7 @@ const ArchivePage = () => {
 													<button className='btn card_tags'>{note.priority}</button>
 												</span>
 												<span className='card_icons_container'>
-													<i class="card_icons fa-solid fa-box-archive" onClick={() => { restoreFromArchive(note._id) }}></i>
+													<i class="card_icons fa-solid fa-clock-rotate-left" onClick={() => { restoreFromArchive(note._id) }}></i>
 
 													<i class="card_icons fa-solid fa-trash " onClick={() => { deleteFromArchive(note._id, note) }}></i>
 												</span>
