@@ -13,6 +13,7 @@ const NoteCreate = () => {
     selectedBackgroundColor: "#faf8f8",
     createdDate: null,
   });
+  useEffect(() => {}, [addNote]);
 
   return (
     <>

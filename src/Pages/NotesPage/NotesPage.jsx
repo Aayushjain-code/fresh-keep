@@ -61,9 +61,9 @@ const NotesPage = () => {
   const [pinnedNotes, setPinnedNotes] = useState([]);
   const [showNotes, setShowNotes] = useState(false);
 
-  useEffect(() => {
-    setPinnedNotes(notes.filter((item) => item.pinned));
-  }, [notes]);
+  // useEffect(() => {
+  //   setPinnedNotes(filteredNotes.filter((item) => item.pinned));
+  // }, [notes]);
 
   return (
     <>
@@ -120,12 +120,12 @@ const NotesPage = () => {
               <span>Newest</span>
             </label>
           </span>
-          <button
+          {/* <button
             className="button primary"
             onClick={() => setShowNotes(!showNotes)}
           >
             Show {showNotes ? `All ` : `Only Pinned `}Notes
-          </button>
+          </button> */}
         </div>
 
         <div className="product-container">
@@ -133,7 +133,7 @@ const NotesPage = () => {
           {console.log(notes)}
         </div>
         <section className="cards" id="cards" style={{ minWidth: "10rem" }}>
-          {showNotes ? (
+          {/* {showNotes ? (
             <div
               className="box-container flex-row-container2 "
               style={{ minWidth: "130rem", marginLeft: "4rem" }}
@@ -147,21 +147,21 @@ const NotesPage = () => {
                 />
               ))}
             </div>
-          ) : (
-            <div
-              className="box-container flex-row-container2 "
-              style={{ minWidth: "130rem", marginLeft: "4rem" }}
-            >
-              {notes.map((note) => (
-                <NewNote
-                  key={note._id}
-                  note={note}
-                  edit={edit}
-                  setEdit={setEdit}
-                />
-              ))}
-            </div>
-          )}
+          ) : ( */}
+          <div
+            className="box-container flex-row-container2 "
+            style={{ minWidth: "130rem", marginLeft: "4rem" }}
+          >
+            {filteredNotes.map((note) => (
+              <NewNote
+                key={note._id}
+                note={note}
+                edit={edit}
+                setEdit={setEdit}
+              />
+            ))}
+          </div>
+          {/* )} */}
 
           {edit.isEdit && <EditCard edit={edit} setEdit={setEdit} />}
         </section>
