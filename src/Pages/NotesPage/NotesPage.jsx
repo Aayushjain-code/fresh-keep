@@ -101,7 +101,7 @@ const NotesPage = () => {
             <label>
               <input
                 type="radio"
-                name="group1"
+                name="group2"
                 onClick={() =>
                   setLabels({ ...labels, oldest: true, newest: false })
                 }
@@ -112,7 +112,7 @@ const NotesPage = () => {
             <label>
               <input
                 type="radio"
-                name="group1"
+                name="group2"
                 onClick={() =>
                   setLabels({ ...labels, oldest: false, newest: true })
                 }

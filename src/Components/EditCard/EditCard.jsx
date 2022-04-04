@@ -63,7 +63,7 @@ export const EditCard = ({ edit, setEdit }) => {
                   })
                 }
               >
-                <i class="fa-solid fa-square-check"></i>
+                <i class="fa-solid fa-hammer"></i>
               </span>
             ) : (
               <span

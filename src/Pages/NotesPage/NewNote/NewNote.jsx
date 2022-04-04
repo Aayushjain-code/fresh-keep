@@ -74,7 +74,7 @@ const NewNote = ({ note, edit, setEdit }) => {
       </div>
 
       <h6 className="dateOnCard">
-        Created At:{" "}
+        Created At:
         {new Date(parseInt(note.createdDate)).toLocaleString(undefined, {
           timeZone: "Asia/Kolkata",
         })}

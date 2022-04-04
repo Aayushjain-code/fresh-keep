@@ -39,7 +39,7 @@ const LabelPage = () => {
     (function () {
       let newData = [...notes];
 
-      if (labels.all) {
+      if (labels.all || filteredNotes.length === 0) {
         setFilteredNotes(newData);
       } else {
         const selectedTags = tags.filter((item) => labels[item]);
