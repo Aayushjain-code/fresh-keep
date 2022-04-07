@@ -30,7 +30,6 @@ const Signup = () => {
 
 
 	const submitHandler = (e) => {
-		// console.log(userDetails);
 		e.preventDefault()
 		const passwordValidation = /^(?=.*\d)(?=.*[a-z]).{5,}$/;
 
@@ -75,11 +74,11 @@ const Signup = () => {
 						<input value={userDetails.email} onChange={(e) => setUserDetails({ ...userDetails, email: e.target.value })} type="text" placeholder="Enter your email" ></input>
 					</div>
 					<div className="input-box">
-						{toggleShowPassword ? <i class="fas fa-eye icon" onClick={() => setToggleShowPassword(!toggleShowPassword)}></i> : <i class="fas fa-eye-slash icon" onClick={() => setToggleShowPassword(!toggleShowPassword)}></i>}
+						{toggleShowPassword ? <i className="fas fa-eye icon" onClick={() => setToggleShowPassword(!toggleShowPassword)}></i> : <i className="fas fa-eye-slash icon" onClick={() => setToggleShowPassword(!toggleShowPassword)}></i>}
 						<input type={toggleShowPassword ? "password" : 'text'} value={userDetails.password} onChange={(e) => setUserDetails({ ...userDetails, password: e.target.value })} placeholder="Create password" ></input>
 					</div>
 					<div className="input-box">
-						{toggleShowConfirmPass ? <i class="fas fa-eye icon" onClick={() => setToggleShowConfirmPass(!toggleShowConfirmPass)}></i> : <i class="fas fa-eye-slash icon" onClick={() => setToggleShowConfirmPass(!toggleShowConfirmPass)}></i>}
+						{toggleShowConfirmPass ? <i className="fas fa-eye icon" onClick={() => setToggleShowConfirmPass(!toggleShowConfirmPass)}></i> : <i className="fas fa-eye-slash icon" onClick={() => setToggleShowConfirmPass(!toggleShowConfirmPass)}></i>}
 						<input value={userDetails.confirmPassword} onChange={(e) => setUserDetails({ ...userDetails, confirmPassword: e.target.value })} type={toggleShowConfirmPass ? 'password' : 'text'} placeholder="Confirm password" ></input>
 					</div>
 

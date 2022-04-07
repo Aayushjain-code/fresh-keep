@@ -14,10 +14,13 @@ const TrashPage = () => {
 		<>
 
 			<div className="main-container">
-
 				<div className="filter-container-landing31"></div>
 
 				<div className='product-container3'>
+					{
+						trashedNotes.length !== 0 && <h1 style={{ marginLeft: "30rem" }}>Trashed Items</h1>
+					}
+
 					<section className="cards" id="cards">
 
 
@@ -28,9 +31,9 @@ const TrashPage = () => {
 									<div className="box-container flex-row-container2"
 										key={note._id}
 									>
-										<div class="m1 card flex-r horizontal-card-container note-cards"
+										<div className="m1 card flex-r horizontal-card-container note-cards"
 											style={{ backgroundColor: note.selectedBackgroundColor }}>
-											<div class="card-text-container">
+											<div className="card-text-container">
 												<h3>{note.title}</h3>
 
 												<p>{note.description}</p>
@@ -40,10 +43,10 @@ const TrashPage = () => {
 													<button className='btn card_tags'>{note.priority}</button>
 												</span>
 												<span className='card_icons_container'>
-													<i class="card_icons fa-solid fa-arrow-rotate-left" onClick={() => {
+													<i className="card_icons fa-solid fa-arrow-rotate-left" onClick={() => {
 														restoreFromTrash(note);
 													}}></i>
-													<i class="card_icons fa-solid fa-trash " onClick={() => {
+													<i className="card_icons fa-solid fa-trash " onClick={() => {
 														removeFromTrash(note._id);
 													}}></i>
 												</span>

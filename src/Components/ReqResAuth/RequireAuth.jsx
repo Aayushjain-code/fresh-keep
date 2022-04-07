@@ -3,7 +3,6 @@ import { useAuth } from "../../Context/authContext";
 export const RequireAuth = () => {
 	const { authState } = useAuth();
 	const location = useLocation();
-	// console.log("authState", authState);
 	return authState.userID ? (
 		<Outlet />
 	) : (

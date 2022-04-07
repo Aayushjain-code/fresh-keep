@@ -31,9 +31,14 @@ function App() {
         location.pathname === "/trashed" ? (
         <Navbar />
       ) : null}
+      {location.pathname === "/notes" ||
+        location.pathname === "/archived" ||
+        location.pathname === "/labels" ||
+        location.pathname === "/trashed" ? (
+        <Sidebar />
+      ) : null}
 
       {/* <Navbar /> */}
-      {/* <Sidebar /> */}
       <Routes>
         {/* <Route path="/mockman" element={<Mockman />} /> */}
         <Route path="/" element={<LandingPage />} />

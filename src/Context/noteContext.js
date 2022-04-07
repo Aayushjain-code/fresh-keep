@@ -48,7 +48,7 @@ const NoteProvider = ({ children }) => {
 	}
 
 	const archiveNote = async (_id, note) => {
-		console.log(_id, note)
+
 		try {
 			const response = await axios.post(
 				`/api/notes/archives/${_id}`,
@@ -78,8 +78,6 @@ const NoteProvider = ({ children }) => {
 		}
 	}
 	const updateNote = async (_id, note) => {
-		// console.log(_id, note);
-		console.log("updated");
 		try {
 			const response = await axios.post(
 				`/api/notes/${_id}`,
