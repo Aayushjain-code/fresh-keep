@@ -4,6 +4,8 @@ Fresh Keep is a note making app made using React JS.
 
 ## Features
 
+https://freshkeep-notes-app.netlify.app/
+
 User can add new note with respective title, description, note-color, label, pin and tag.
 Edit Note data.
 Filter based on labels.
