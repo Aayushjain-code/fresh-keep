@@ -51,7 +51,7 @@ const LabelPage = () => {
 
   return (
     <>
-      <div className="main-container">
+      <div className="main-container2">
         <div className="filter-container-landing">
           <h1 className="filter-heading">Tags</h1>
           <span className="filter-sub-heading">

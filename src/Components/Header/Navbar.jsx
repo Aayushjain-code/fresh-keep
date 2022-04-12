@@ -8,8 +8,31 @@ const NavBar = () => {
   return (
     <header className="header">
       <Link to="/notes" className="logo">
-        {" "}
         <i className="fa-solid fa-book-open-reader"></i> Fresh-Keep
+      </Link>
+      <Link to="/notes">
+        <p className="sidebar-heading link text-decor-none">
+          <i className="fa-solid fa-book"></i>
+          Notes
+        </p>
+      </Link>
+      <Link to="/labels">
+        <p className="sidebar-heading link text-decor-none">
+          <i className="fa-solid fa-tag"></i>
+          Labels
+        </p>
+      </Link>
+      <Link to="/archived">
+        <p className="sidebar-heading link text-decor-none">
+          <i className="fa-solid fa-inbox"></i>
+          Archives
+        </p>
+      </Link>
+      <Link to="/trashed">
+        <p className="sidebar-heading link text-decor-none">
+          <i className="fa-solid fa-trash-can"></i>
+          Trashed
+        </p>
       </Link>
 
       <div className="icons">

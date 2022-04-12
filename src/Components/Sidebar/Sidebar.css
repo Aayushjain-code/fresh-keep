@@ -1,8 +1,6 @@
 .sidebar {
-	position: fixed;
-	left: 108rem;
-	margin-top: 1rem;
-	/* margin-top: 1rem; */
+	position: relative;
+	left: 120rem;
 	z-index: 1000;
 	width: 12rem;
 	background-color: var(--bg-color-1);
