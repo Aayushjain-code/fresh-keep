@@ -20,3 +20,13 @@
 	cursor: pointer;
 	padding-top: 2rem;
 }
+.link {
+	border: none;
+	background-color: var(--background-color2);
+}
+
+.link:hover {
+	background-color: var(--background-color2);
+
+	padding: none;
+}
