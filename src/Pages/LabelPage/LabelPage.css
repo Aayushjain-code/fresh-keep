@@ -1,9 +1,12 @@
-.main-container {
+.main-container2 {
 	margin-top: 5rem;
-	display: grid;
-	grid-template-columns: 1fr 4fr;
-	position: absolute;
-	top: 0;
+	/* display: grid; */
+	/* grid-template-columns: 1fr 4fr; */
+	/* position: absolute; */
+	/* top: 0; */
+	display: flex;
+	/* flex-wrap: wrap; */
+	justify-content: center;
 
 }
 
@@ -18,7 +21,7 @@
 	background-color: var(--bg-color-1);
 	padding: 1rem;
 	border-radius: .5rem;
-	max-height: 32rem;
+	max-height: 34rem;
 	min-width: 16rem;
 }
 
